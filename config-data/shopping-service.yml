@@ -39,7 +39,7 @@ Feign:
   hystrix:
     enabled: true
     dashboard:
-      proxy-stream-allow-list: '*'
+      proxy-stream-allow-list: "*"
   ribbon:
     enabled: true
   circuitbreaker:
@@ -48,4 +48,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: "*"
