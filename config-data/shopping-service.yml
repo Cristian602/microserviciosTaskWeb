@@ -49,3 +49,5 @@ management:
     web:
       exposure:
         include: "*"
+
+hystrix.dashboard.proxy-stream-allow-list: 127.0.0.1
