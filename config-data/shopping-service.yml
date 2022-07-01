@@ -36,15 +36,27 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka/
 
-Feign:
-  hystrix:
-    enabled: true
-    dashboard:
-      proxy-stream-allow-list: "*"
-  ribbon:
-    enabled: true
-  circuitbreaker:
-    enabled: true
+resilience4j.circuitbreaker:
+  instances:
+    productIns:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 4
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+    customerIns:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 4
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+
 management:
   endpoints:
     web:
